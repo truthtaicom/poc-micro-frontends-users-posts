@@ -1,0 +1,43 @@
+version: '3.7'
+
+services:
+
+  container:
+    container_name: container
+    build:
+      context: ./packages/container
+      dockerfile: Dockerfile
+    ports:
+      - 3000:80
+    depends_on:
+      - shared
+      - app-user
+      - app-post
+
+  shared:
+    container_name: shared
+    build:
+      context: ./packages/shared
+      dockerfile: Dockerfile
+    ports:
+      - 3001:80
+
+  app-user:
+    container_name: app-user
+    build:
+      context: ./packages/appUser
+      dockerfile: Dockerfile
+    ports:
+      - 3002:80
+    depends_on:
+      - shared
+
+  app-post:
+    container_name: app-post
+    build:
+      context: ./packages/appPost
+      dockerfile: Dockerfile
+    ports:
+      - 3003:80
+    depends_on:
+      - shared
