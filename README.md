@@ -1,4 +1,4 @@
-# RELEX ASSIGNMENT
+# POC Micro-frontends 
 
 ### Author: TRUONG THANH TAI - truthtaicom@gmail.com
 
